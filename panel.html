@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Panel – HouseInvest Market</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .panel-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: calc(100vh - 68px);
+    }
+    .panel-sidebar {
+      background: var(--blue-main);
+      padding: 28px 0;
+      position: sticky;
+      top: 68px;
+      height: calc(100vh - 68px);
+    }
+    .panel-nav-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 24px;
+      font-size: 0.88rem; font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+    .panel-nav-item:hover,
+    .panel-nav-item.active {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border-left-color: var(--gold);
+    }
+    .panel-nav-item .nav-icon { font-size: 1.05rem; width: 20px; text-align: center; }
+    .panel-nav-section {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+      padding: 20px 24px 8px;
+    }
+    .panel-content {
+      background: var(--gray-light);
+      padding: 36px 40px;
+      overflow-y: auto;
+    }
+    .panel-greeting {
+      margin-bottom: 28px;
+    }
+    .panel-greeting h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 800;
+      color: var(--blue-main);
+    }
+    .panel-greeting p { font-size: 0.9rem; color: var(--gray-mid); margin-top: 4px; }
+
+    /* Widgets row */
+    .widgets-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .widget-card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius-lg);
+      padding: 20px 20px;
+      transition: box-shadow 0.2s;
+    }
+    .widget-card:hover { box-shadow: var(--shadow-md); }
+    .widget-card-icon {
+      font-size: 1.4rem; margin-bottom: 10px;
+    }
+    .widget-card-label { font-size: 0.72rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.06em; }
+    .widget-card-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 800;
+      color: var(--blue-main); margin-top: 4px;
+    }
+    .widget-card-sub { font-size: 0.78rem; color: var(--gray-mid); margin-top: 4px; }
+
+    /* Tabla de inversiones */
+    .inv-table { width: 100%; border-collapse: collapse; }
+    .inv-table th {
+      text-align: left; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--gray-mid); padding: 10px 16px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .inv-table td {
+      padding: 14px 16px;
+      font-size: 0.88rem; color: var(--gray-text);
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .inv-table tr:last-child td { border-bottom: none; }
+    .inv-table tr:hover td { background: var(--blue-light); }
+
+    /* Notificaciones */
+    .notif {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+    }
+    .notif-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blue-modern); flex-shrink: 0; margin-top: 4px;
+    }
+    .notif-dot.gold { background: var(--gold); }
+    .notif h5 { font-size: 0.88rem; font-weight: 600; color: var(--gray-text); }
+    .notif p { font-size: 0.8rem; color: var(--gray-mid); margin-top: 2px; }
+
+    @media (max-width: 1024px) {
+      .panel-layout { grid-template-columns: 1fr; }
+      .panel-sidebar { display: none; }
+      .panel-content { padding: 24px 5vw; }
+      .widgets-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .widgets-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="panel-layout">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="panel-sidebar">
+      <div style="padding:0 24px 20px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;">
+        <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:1rem;">Juan A. García</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:2px;">Inversionista verificado</div>
+      </div>
+      <div class="panel-nav-section">Inversiones</div>
+      <a href="panel.html" class="panel-nav-item active">
+        <span class="nav-icon">📊</span> Mi panel
+      </a>
+      <a href="proyectos.html" class="panel-nav-item">
+        <span class="nav-icon">🏙️</span> Ver proyectos
+      </a>
+      <div class="panel-nav-section">Gestión</div>
+      <a href="#" class="panel-nav-item btn-subir-doc">
+        <span class="nav-icon">📄</span> Mis documentos
+      </a>
+      <a href="#" class="panel-nav-item" id="btn-pago">
+        <span class="nav-icon">💳</span> Realizar pago
+      </a>
+      <a href="asesoria.html" class="panel-nav-item">
+        <span class="nav-icon">🤝</span> Mi asesor
+      </a>
+      <div class="panel-nav-section">Cuenta</div>
+      <a href="#" class="panel-nav-item">
+        <span class="nav-icon">⚙️</span> Configuración
+      </a>
+      <a href="login.html" class="panel-nav-item">
+        <span class="nav-icon">🚪</span> Cerrar sesión
+      </a>
+    </aside>
+
+    <!-- ═══ CONTENIDO ═══ -->
+    <main class="panel-content">
+
+      <div class="panel-greeting">
+        <h2>¡Hola, Juan Andrés! 👋</h2>
+        <p>Aquí tienes el resumen de tu inversión al día de hoy.</p>
+      </div>
+
+      <!-- Widgets -->
+      <div class="widgets-row">
+        <div class="widget-card">
+          <div class="widget-card-icon">💰</div>
+          <div class="widget-card-label">Capital invertido</div>
+          <div class="widget-card-value">$280M</div>
+          <div class="widget-card-sub">COP · 1 proyecto activo</div>
+        </div>
+        <div class="widget-card">
+          <div class="widget-card-icon">📈</div>
+          <div class="widget-card-label">Rentabilidad proyectada</div>
+          <div class="widget-card-value" style="color:#059669;">+16%</div>
+          <div class="widget-card-sub">Anual estimada</div>
+        </div>
+        <div class="widget-card">
+          <div class="widget-card-icon">📄</div>
+          <div class="widget-card-label">Documentos</div>
+          <div class="widget-card-value">3 / 5</div>
+          <div class="widget-card-sub">Pendiente: promesa de compra</div>
+        </div>
+        <div class="widget-card">
+          <div class="widget-card-icon">🔔</div>
+          <div class="widget-card-label">Notificaciones</div>
+          <div class="widget-card-value" style="color:var(--gold-dark);">2</div>
+          <div class="widget-card-sub">Mensajes nuevos</div>
+        </div>
+      </div>
+
+      <!-- Progreso de inversión -->
+      <div style="background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-lg);padding:24px 26px;margin-bottom:1.5rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--blue-main);">
+            📍 Reserva Verde – El Poblado · Medellín
+          </h3>
+          <span class="badge badge-blue">Preventa</span>
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--gray-mid);margin-bottom:6px;">
+            <span>Avance del proyecto</span><span>25%</span>
+          </div>
+          <div class="progress-wrap" style="height:10px;">
+            <div class="progress-fill" style="width:25%;"></div>
+          </div>
+        </div>
+
+        <!-- Etapas -->
+        <div style="display:flex;gap:0;overflow-x:auto;">
+          <div style="flex:1;min-width:100px;text-align:center;padding:10px 8px;background:var(--blue-main);border-radius:6px 0 0 6px;">
+            <div style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Etapa 1</div>
+            <div style="font-size:0.82rem;font-weight:700;color:var(--white);">✓ Reserva</div>
+          </div>
+          <div style="flex:1;min-width:100px;text-align:center;padding:10px 8px;background:var(--blue-light);border:1px solid var(--blue-mid);">
+            <div style="font-size:0.7rem;color:var(--gray-mid);">Etapa 2</div>
+            <div style="font-size:0.82rem;font-weight:700;color:var(--blue-main);">En curso</div>
+          </div>
+          <div style="flex:1;min-width:100px;text-align:center;padding:10px 8px;background:var(--gray-light);border:1px solid var(--gray-border);">
+            <div style="font-size:0.7rem;color:var(--gray-mid);">Etapa 3</div>
+            <div style="font-size:0.82rem;color:var(--gray-mid);">Construcción</div>
+          </div>
+          <div style="flex:1;min-width:100px;text-align:center;padding:10px 8px;background:var(--gray-light);border:1px solid var(--gray-border);">
+            <div style="font-size:0.7rem;color:var(--gray-mid);">Etapa 4</div>
+            <div style="font-size:0.82rem;color:var(--gray-mid);">Entrega</div>
+          </div>
+          <div style="flex:1;min-width:100px;text-align:center;padding:10px 8px;background:var(--gray-light);border:1px solid var(--gray-border);border-radius:0 6px 6px 0;">
+            <div style="font-size:0.7rem;color:var(--gray-mid);">Etapa 5</div>
+            <div style="font-size:0.82rem;color:var(--gray-mid);">Escrituración</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;">
+          <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+          <a href="asesoria.html" class="btn btn-outline btn-sm">Contactar asesor</a>
+          <button class="btn btn-outline btn-sm btn-subir-doc">Subir documentos</button>
+          <button class="btn btn-gold btn-sm" id="btn-pago">Realizar pago</button>
+        </div>
+      </div>
+
+      <!-- Grid inferior: historial + notificaciones -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+        <!-- Historial de pagos -->
+        <div style="background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-lg);overflow:hidden;">
+          <div style="padding:16px 20px;border-bottom:1px solid var(--gray-border);">
+            <h4 style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--blue-main);">
+              💳 Historial de pagos
+            </h4>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="inv-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Concepto</th>
+                  <th>Monto</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10 Mar 2025</td>
+                  <td>Cuota inicial</td>
+                  <td>$28M</td>
+                  <td><span class="badge badge-green">Pagado</span></td>
+                </tr>
+                <tr>
+                  <td>10 Abr 2025</td>
+                  <td>Cuota #1</td>
+                  <td>$14M</td>
+                  <td><span class="badge badge-green">Pagado</span></td>
+                </tr>
+                <tr>
+                  <td>15 May 2025</td>
+                  <td>Cuota #2</td>
+                  <td>$14M</td>
+                  <td><span class="badge" style="background:var(--gold-soft);color:var(--gold-dark);">Pendiente</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div>
+          <div style="padding:16px 20px;border-bottom:1px solid var(--gray-border);background:var(--white);border-radius:var(--radius-lg) var(--radius-lg) 0 0;border:1px solid var(--gray-border);">
+            <h4 style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--blue-main);">
+              🔔 Notificaciones
+            </h4>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--gray-border);border-top:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);padding:14px;">
+            <div class="notif">
+              <div class="notif-dot gold"></div>
+              <div>
+                <h5>Próximo pago el 15 de mayo</h5>
+                <p>Cuota #2 · $14M COP · Reserva Verde</p>
+              </div>
+            </div>
+            <div class="notif">
+              <div class="notif-dot"></div>
+              <div>
+                <h5>Tu asesor envió un mensaje</h5>
+                <p>Carlos M. te ha enviado documentación legal para revisar.</p>
+              </div>
+            </div>
+            <div class="notif" style="border:none;background:var(--gray-light);">
+              <div class="notif-dot" style="background:var(--gray-border);"></div>
+              <div>
+                <h5 style="color:var(--gray-mid);">Bienvenido a HouseInvest</h5>
+                <p>Tu cuenta fue verificada exitosamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Ocultar navbar flotante; el sidebar hace su función -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navbar');
+      if (nav) nav.style.display = 'none';
+      const footer = document.querySelector('.footer');
+      if (footer) footer.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

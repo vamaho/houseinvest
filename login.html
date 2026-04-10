@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceder – HouseInvest Market</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="auth-layout">
+
+    <!-- ═══ PANEL VISUAL IZQUIERDO ═══ -->
+    <div class="auth-visual">
+      <div class="auth-visual-content">
+        <a href="index.html" style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--white);text-decoration:none;display:block;margin-bottom:40px;">
+          HouseInvest<span style="color:var(--gold);">·</span>Market
+        </a>
+        <h2>Accede a tu inversión<br>desde <em>cualquier lugar</em></h2>
+        <p>
+          Gestiona tus proyectos, documentos y seguimiento de rentabilidad
+          en una sola plataforma digital, segura y disponible 24/7.
+        </p>
+
+        <div class="auth-feature">
+          <div class="auth-feature-icon">⚖️</div>
+          <span>Asesoría legal, financiera y comercial incluida</span>
+        </div>
+        <div class="auth-feature">
+          <div class="auth-feature-icon">🌎</div>
+          <span>Invierte desde cualquier país del mundo</span>
+        </div>
+        <div class="auth-feature">
+          <div class="auth-feature-icon">📈</div>
+          <span>Monitoreo de rentabilidad en tiempo real</span>
+        </div>
+        <div class="auth-feature">
+          <div class="auth-feature-icon">🔒</div>
+          <span>Procesos 100% digitales y seguros</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ FORMULARIOS ═══ -->
+    <div class="auth-form-wrap">
+      <div class="auth-form-inner">
+
+        <div class="auth-tabs-wrap">
+          <button class="auth-tab active" data-tab="panel-login">Iniciar sesión</button>
+          <button class="auth-tab" data-tab="panel-register">Registrarse</button>
+        </div>
+
+        <!-- Panel Login -->
+        <div id="panel-login" class="auth-panel">
+          <h2>Bienvenido de nuevo</h2>
+          <p>Ingresa tus credenciales para acceder a tu cuenta</p>
+          <form id="form-login">
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" id="login-email" placeholder="tu@correo.com" required>
+            </div>
+            <div class="form-group">
+              <label>
+                Contraseña
+                <a href="#" class="forgot-link" id="forgot-link">¿Olvidaste tu contraseña?</a>
+              </label>
+              <input type="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit" style="width:100%;justify-content:center;margin-top:8px;">
+              Iniciar sesión
+            </button>
+          </form>
+          <p style="text-align:center;margin-top:20px;font-size:0.83rem;color:var(--gray-mid);">
+            ¿No tienes cuenta?
+            <a href="#" onclick="document.querySelectorAll('.auth-tab')[1].click();return false;"
+               style="color:var(--blue-modern);font-weight:600;">
+              Regístrate gratis
+            </a>
+          </p>
+        </div>
+
+        <!-- Panel Registro -->
+        <div id="panel-register" class="auth-panel" style="display:none;">
+          <h2>Crea tu cuenta</h2>
+          <p>Empieza a invertir en Colombia desde hoy</p>
+          <form id="form-register">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" placeholder="tu@correo.com" required>
+              </div>
+              <div class="form-group">
+                <label>País</label>
+                <select>
+                  <option>Colombia</option>
+                  <option>México</option>
+                  <option>Estados Unidos</option>
+                  <option>España</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="reg-pass" placeholder="Mínimo 8 caracteres" required>
+              </div>
+              <div class="form-group">
+                <label>Confirmar</label>
+                <input type="password" id="reg-pass2" placeholder="Repite la contraseña" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit" style="width:100%;justify-content:center;margin-top:8px;">
+              Crear cuenta gratis
+            </button>
+          </form>
+          <p style="text-align:center;margin-top:16px;font-size:0.78rem;color:var(--gray-mid);line-height:1.5;">
+            Al registrarte aceptas nuestros
+            <a href="#" style="color:var(--blue-modern);">Términos y condiciones</a> y
+            <a href="#" style="color:var(--blue-modern);">Política de privacidad</a>
+          </p>
+        </div>
+
+        <div style="text-align:center;margin-top:24px;">
+          <a href="index.html" class="btn btn-outline btn-sm">← Volver al inicio</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Ocultar navbar en auth -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navbar');
+      if (nav) nav.style.display = 'none';
+      const footer = document.querySelector('.footer');
+      if (footer) footer.style.display = 'none';
+      const scrollBtn = document.getElementById('scrollTop');
+      if (scrollBtn) scrollBtn.style.display = 'none';
+
+      // Si viene de #registro, abrir tab de registro
+      if (window.location.hash === '#registro') {
+        document.querySelectorAll('.auth-tab')[1]?.click();
+      }
+    });
+  </script>
+</body>
+</html>

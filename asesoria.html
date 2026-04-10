@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asesoría – HouseInvest Market</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .advisory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) { .advisory-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <div style="background:var(--blue-light);padding:56px 6vw 48px;border-bottom:1px solid var(--blue-mid);">
+    <span class="section-tag">Acompañamiento experto</span>
+    <h1 class="section-title">Asesoría integral en<br>cada etapa de tu inversión</h1>
+    <div class="gold-line"></div>
+    <p class="section-desc">
+      En HouseInvest Market integramos asesoría especializada para que tomes decisiones
+      seguras, informadas y alineadas con tus objetivos financieros.
+    </p>
+  </div>
+
+  <!-- ═══ CONTENIDO ═══ -->
+  <section class="section section-white">
+    <div class="advisory-grid">
+
+      <!-- Cards asesoría -->
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+
+        <div class="advisory-card reveal">
+          <div class="advisory-icon">⚖️</div>
+          <div>
+            <h4>Asesoría Legal</h4>
+            <ul>
+              <li>Validación de documentos del proyecto</li>
+              <li>Revisión de contratos de compraventa</li>
+              <li>Seguridad jurídica garantizada</li>
+              <li>Protección contra fraudes inmobiliarios</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="advisory-card reveal">
+          <div class="advisory-icon">💰</div>
+          <div>
+            <h4>Asesoría Financiera</h4>
+            <ul>
+              <li>Simulación personalizada de inversión</li>
+              <li>Análisis detallado de rentabilidad</li>
+              <li>Opciones de crédito o financiamiento</li>
+              <li>Estrategia fiscal para inversionistas extranjeros</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="advisory-card reveal">
+          <div class="advisory-icon">🏢</div>
+          <div>
+            <h4>Asesoría Comercial</h4>
+            <ul>
+              <li>Selección del proyecto según tu perfil</li>
+              <li>Análisis de ubicación y valorización</li>
+              <li>Estrategia de inversión a largo plazo</li>
+              <li>Comparativa entre proyectos del portafolio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <a href="proyectos.html" class="btn btn-outline">Explorar proyectos</a>
+          <a href="index.html" class="btn btn-outline">← Volver al inicio</a>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="reveal">
+        <div style="background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);">
+          <div style="background:var(--blue-main);padding:24px 28px;">
+            <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);">
+              Solicitar asesoría
+            </h3>
+            <p style="color:rgba(255,255,255,0.7);font-size:0.88rem;margin-top:4px;">
+              Un experto te contacta en menos de 24 horas.
+            </p>
+          </div>
+          <div style="padding:28px;">
+            <form id="form-asesoria">
+              <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" placeholder="Tu nombre completo" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Correo electrónico</label>
+                  <input type="email" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                  <label>País de residencia</label>
+                  <select>
+                    <option>Colombia</option>
+                    <option>México</option>
+                    <option>Estados Unidos</option>
+                    <option>España</option>
+                    <option>Canadá</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Presupuesto estimado</label>
+                  <select>
+                    <option>Menos de $100M COP</option>
+                    <option>$100M – $300M COP</option>
+                    <option>$300M – $600M COP</option>
+                    <option>Más de $600M COP</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Tipo de inversión</label>
+                  <select>
+                    <option>Apartamento</option>
+                    <option>Lote</option>
+                    <option>Casa</option>
+                    <option>Comercial</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>¿Qué tipo de asesoría necesitas?</label>
+                <select>
+                  <option>Legal + Financiera + Comercial (completa)</option>
+                  <option>Solo legal</option>
+                  <option>Solo financiera</option>
+                  <option>Solo comercial</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Mensaje (opcional)</label>
+                <textarea placeholder="Cuéntanos sobre tus objetivos de inversión…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold btn-submit" style="width:100%;justify-content:center;">
+                Enviar solicitud
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

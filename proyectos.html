@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos – HouseInvest Market</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <div style="background:var(--blue-light);padding:48px 6vw 40px;border-bottom:1px solid var(--blue-mid);">
+    <span class="section-tag">Portafolio</span>
+    <h1 class="section-title">Encuentra el proyecto ideal<br>para tu inversión</h1>
+    <div class="gold-line"></div>
+    <p class="section-desc">
+      Explora una selección de proyectos inmobiliarios verificados en diferentes ciudades
+      de Colombia, con información clara, comparativa y actualizada.
+    </p>
+  </div>
+
+  <!-- ═══ FILTROS + GRID ═══ -->
+  <section class="section section-white">
+
+    <div class="filters-bar">
+      <select class="filter-select" id="filter-city">
+        <option value="">📍 Todas las ciudades</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Bogotá">Bogotá</option>
+        <option value="Cartagena">Cartagena</option>
+        <option value="Cali">Cali</option>
+        <option value="Barranquilla">Barranquilla</option>
+        <option value="Pereira">Pereira</option>
+      </select>
+      <select class="filter-select" id="filter-type">
+        <option value="">🏠 Tipo de propiedad</option>
+        <option value="Apartamento">Apartamento</option>
+        <option value="Lote">Lote</option>
+        <option value="Casa">Casa</option>
+        <option value="Comercial">Comercial</option>
+      </select>
+      <select class="filter-select" id="filter-price">
+        <option value="">💰 Rango de precio</option>
+        <option value="bajo">Menos de $100M</option>
+        <option value="medio">$100M – $300M</option>
+        <option value="alto">$300M – $600M</option>
+        <option value="premium">Más de $600M</option>
+      </select>
+      <select class="filter-select">
+        <option value="">📊 Nivel de inversión</option>
+        <option>Inicial</option>
+        <option>Intermedio</option>
+        <option>Premium</option>
+      </select>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;">
+
+      <!-- Proyecto 1 -->
+      <div class="project-card reveal" data-city="Medellín" data-type="Apartamento" data-price="medio">
+        <div class="project-img" style="background:linear-gradient(135deg,#1E3A8A,#2563EB);">
+          🏙️
+          <div class="project-img-overlay"></div>
+          <div class="project-badge-wrap"><span class="badge badge-gold">Lanzamiento</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-city">📍 Medellín, Antioquia</div>
+          <div class="project-name">Reserva Verde – El Poblado</div>
+          <div class="project-meta">
+            <div><div class="meta-label">Precio desde</div><div class="meta-value">$280M COP</div></div>
+            <div><div class="meta-label">Tipo</div><div class="meta-value">Apartamento</div></div>
+            <div><div class="meta-label">Rentabilidad</div><div class="meta-value positive">+16% anual</div></div>
+            <div><div class="meta-label">Etapa</div><div class="meta-value">Preventa</div></div>
+          </div>
+          <div class="project-btns">
+            <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+            <a href="asesoria.html" class="btn btn-outline btn-sm">Asesoría</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="project-card reveal" data-city="Bogotá" data-type="Apartamento" data-price="alto">
+        <div class="project-img" style="background:linear-gradient(135deg,#1a1a4e,#2563EB);">
+          🏛️
+          <div class="project-img-overlay"></div>
+          <div class="project-badge-wrap"><span class="badge badge-blue">Alta demanda</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-city">📍 Bogotá, Cundinamarca</div>
+          <div class="project-name">Parque 93 Suites</div>
+          <div class="project-meta">
+            <div><div class="meta-label">Precio desde</div><div class="meta-value">$450M COP</div></div>
+            <div><div class="meta-label">Tipo</div><div class="meta-value">Apartamento</div></div>
+            <div><div class="meta-label">Rentabilidad</div><div class="meta-value positive">+19% anual</div></div>
+            <div><div class="meta-label">Etapa</div><div class="meta-value">En construcción</div></div>
+          </div>
+          <div class="project-btns">
+            <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+            <a href="asesoria.html" class="btn btn-outline btn-sm">Asesoría</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="project-card reveal" data-city="Cartagena" data-type="Apartamento" data-price="alto">
+        <div class="project-img" style="background:linear-gradient(135deg,#0d3320,#1E6A40);">
+          🌴
+          <div class="project-img-overlay"></div>
+          <div class="project-badge-wrap"><span class="badge badge-gold">Nuevo</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-city">📍 Cartagena, Bolívar</div>
+          <div class="project-name">Marina Bay Residences</div>
+          <div class="project-meta">
+            <div><div class="meta-label">Precio desde</div><div class="meta-value">$390M COP</div></div>
+            <div><div class="meta-label">Tipo</div><div class="meta-value">Apartamento</div></div>
+            <div><div class="meta-label">Rentabilidad</div><div class="meta-value positive">+22% anual</div></div>
+            <div><div class="meta-label">Etapa</div><div class="meta-value">Preventa</div></div>
+          </div>
+          <div class="project-btns">
+            <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+            <a href="asesoria.html" class="btn btn-outline btn-sm">Asesoría</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 4 -->
+      <div class="project-card reveal" data-city="Cali" data-type="Lote" data-price="bajo">
+        <div class="project-img" style="background:linear-gradient(135deg,#1a3020,#2D5A3A);">
+          🏡
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-body">
+          <div class="project-city">📍 Cali, Valle del Cauca</div>
+          <div class="project-name">Lotes Calima Reserva</div>
+          <div class="project-meta">
+            <div><div class="meta-label">Precio desde</div><div class="meta-value">$85M COP</div></div>
+            <div><div class="meta-label">Tipo</div><div class="meta-value">Lote</div></div>
+            <div><div class="meta-label">Rentabilidad</div><div class="meta-value positive">+14% anual</div></div>
+            <div><div class="meta-label">Etapa</div><div class="meta-value">Escrituración</div></div>
+          </div>
+          <div class="project-btns">
+            <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+            <a href="asesoria.html" class="btn btn-outline btn-sm">Asesoría</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 5 -->
+      <div class="project-card reveal" data-city="Barranquilla" data-type="Comercial" data-price="premium">
+        <div class="project-img" style="background:linear-gradient(135deg,#2a1a4e,#4a2a8e);">
+          🏗️
+          <div class="project-img-overlay"></div>
+          <div class="project-badge-wrap"><span class="badge badge-gold">Premium</span></div>
+        </div>
+        <div class="project-body">
+          <div class="project-city">📍 Barranquilla, Atlántico</div>
+          <div class="project-name">Torre Prado Business Center</div>
+          <div class="project-meta">
+            <div><div class="meta-label">Precio desde</div><div class="meta-value">$620M COP</div></div>
+            <div><div class="meta-label">Tipo</div><div class="meta-value">Comercial</div></div>
+            <div><div class="meta-label">Rentabilidad</div><div class="meta-value positive">+21% anual</div></div>
+            <div><div class="meta-label">Etapa</div><div class="meta-value">En construcción</div></div>
+          </div>
+          <div class="project-btns">
+            <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+            <a href="asesoria.html" class="btn btn-outline btn-sm">Asesoría</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 6 -->
+      <div class="project-card reveal" data-city="Pereira" data-type="Casa" data-price="medio">
+        <div class="project-img" style="background:linear-gradient(135deg,#0d2a1a,#1a5a30);">
+          🌿
+          <div class="project-img-overlay"></div>
+        </div>
+        <div class="project-body">
+          <div class="project-city">📍 Pereira, Risaralda</div>
+          <div class="project-name">Eco Villas Cerritos</div>
+          <div class="project-meta">
+            <div><div class="meta-label">Precio desde</div><div class="meta-value">$175M COP</div></div>
+            <div><div class="meta-label">Tipo</div><div class="meta-value">Casa</div></div>
+            <div><div class="meta-label">Rentabilidad</div><div class="meta-value positive">+15% anual</div></div>
+            <div><div class="meta-label">Etapa</div><div class="meta-value">Preventa</div></div>
+          </div>
+          <div class="project-btns">
+            <a href="detalle.html" class="btn btn-primary btn-sm">Ver proyecto</a>
+            <a href="asesoria.html" class="btn btn-outline btn-sm">Asesoría</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="index.html" class="btn btn-outline">← Volver al inicio</a>
+    </div>
+  </section>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
